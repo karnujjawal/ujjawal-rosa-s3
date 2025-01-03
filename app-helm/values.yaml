@@ -1,0 +1,13 @@
+replicaCount: 2
+image:
+  repository: nginx
+  tag: latest
+service:
+  type: ClusterIP
+config:
+  exampleKey: "exampleValue"
+storage:
+  size: 1Gi
+secret:
+  username: "admin"
+  password: "password"

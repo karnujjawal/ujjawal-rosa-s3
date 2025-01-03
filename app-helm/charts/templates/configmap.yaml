@@ -1,0 +1,7 @@
+# App-helm-chart/charts/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+  data:
+    example-key: {{ .Values.config.exampleKey }}
