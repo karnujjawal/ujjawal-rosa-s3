@@ -1,4 +1,5 @@
 replicaCount: 2
+name: app-helm-chart
 image:
   repository: nginx
   tag: latest
