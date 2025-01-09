@@ -1,14 +1,34 @@
 replicaCount: 2
-name: app-helm-chart
+
 image:
   repository: nginx
   tag: latest
+  pullPolicy: IfNotPresent
+
 service:
   type: ClusterIP
-config:
-  exampleKey: "exampleValue"
-storage:
+  port: 80
+
+pvc:
+  storageClassName: "standard"
   size: 1Gi
+
+config:
+  key: value
+
+route:
+  enabled: true
+  hostname: example.com
+
 secret:
-  username: "admin"
-  password: "password"
+  username: admin
+  password: password
+
+serviceAccount:
+  name: app-service-account
+
+role:
+  rules:
+    - apiGroups: [""]
+      resources: ["pods"]
+      verbs: ["get", "list", "watch"]

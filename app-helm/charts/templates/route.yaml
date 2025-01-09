@@ -1,11 +1,11 @@
-# App-helm-chart/charts/templates/route.yaml
+{{- if .Values.route.enabled }}
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: {{ .Values.Name }}-route
+  name: {{ .Values.name }}-route
 spec:
+  host: {{ .Values.route.hostname }}
   to:
     kind: Service
-    name: {{ .Values.Name }}-service
-  port:
-    targetPort: 80
+    name: {{ .Values.name }}-service
+{{- end }}

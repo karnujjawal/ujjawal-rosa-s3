@@ -1,11 +1,11 @@
-# App-helm-chart/charts/templates/pvc.yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Values.Name }}-pvc
+  name: {{ .Values.name }}-pvc
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: {{ .Values.storage.size }}
+      storage: {{ .Values.pvc.size }}
+  storageClassName: {{ .Values.pvc.storageClassName }}
